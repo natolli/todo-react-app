@@ -1,0 +1,6 @@
+export const todoTypes = {
+  COMPLETE_TASK: "COMPLETE_TASK",
+  OPEN_MODAL: "OPEN_MODAL",
+  DELETE_TASK: "DELETE_TASK",
+  ADD_TODO: "ADD_TODO",
+};
