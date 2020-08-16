@@ -5,9 +5,11 @@ import {
   ListContainer,
   LinkStyled,
   ListStyled,
+  ButtonStyled,
 } from "./navbar.styles";
+import { auth } from "../../firebase/firebase.utils";
 
-export const Navbar = () => {
+export const Navbar = ({ currentUser }) => {
   return (
     <NavbarContainer>
       <Title>Todo</Title>
@@ -19,7 +21,17 @@ export const Navbar = () => {
           <LinkStyled to="/todo">About</LinkStyled>
         </ListStyled>
         <ListStyled>
-          <LinkStyled to="/">Sign In</LinkStyled>
+          {currentUser ? (
+            <ButtonStyled
+              onClick={() => {
+                auth.signOut();
+              }}
+            >
+              Sign Out({currentUser.displayName})
+            </ButtonStyled>
+          ) : (
+            <LinkStyled to="/signin">Sign In</LinkStyled>
+          )}
         </ListStyled>
       </ListContainer>
     </NavbarContainer>

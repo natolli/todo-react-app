@@ -30,6 +30,15 @@ export const ListContainer = styled.ul`
 `;
 export const ListStyled = styled.li``;
 
+export const ButtonStyled = styled.div`
+  ${Text}
+  transition:all .2s ease-in-out;
+  :hover {
+    color: #abd2fa;
+  }
+  cursor: pointer;
+`;
+
 export const LinkStyled = styled(Link)`
   ${Text}
   transition:all .2s ease-in-out;

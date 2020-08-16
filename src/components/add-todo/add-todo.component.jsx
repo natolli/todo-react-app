@@ -17,6 +17,11 @@ export const AddTodo = () => {
     e.preventDefault();
 
     addTodo(userFormInput);
+    setFormInput({
+      title: "",
+      description: "",
+    });
+    openModal();
   };
 
   const handleChange = (event) => {
