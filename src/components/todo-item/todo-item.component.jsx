@@ -26,7 +26,7 @@ export const TodoItem = ({ todo: { id, title, description, isCompleted } }) => {
         <CheckBoxContainer
           isCompleted={isCompleted}
           onClick={() => {
-            completeTask(id);
+            completeTask(id, isCompleted);
           }}
         >
           <TickStyled isCompleted={isCompleted} />

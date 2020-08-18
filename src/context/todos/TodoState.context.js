@@ -19,10 +19,6 @@ export const TodoProvider = ({ children }) => {
   const [state, dispatch] = useReducer(TodoReducer, INITIAL_STATE);
 
   //Actions
-  const completeTask = (id) => {
-    dispatch({ type: todoTypes.COMPLETE_TASK, payload: id });
-  };
-
   const openModal = () => {
     dispatch({ type: todoTypes.OPEN_MODAL });
   };
@@ -63,6 +59,15 @@ export const TodoProvider = ({ children }) => {
       .doc(id)
       .delete();
     getTodos();
+  };
+
+  const completeTask = async (id, isCompleted) => {
+    await firestore
+      .collection("users")
+      .doc(currentUser.id)
+      .collection("todos")
+      .doc(id)
+      .update({ isCompleted: !isCompleted });
   };
 
   return (
