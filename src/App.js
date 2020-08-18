@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from "react";
 import "./App.css";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import { TodoPage } from "./pages/todo-page/todo-page.component";
@@ -8,6 +8,7 @@ import { HomePage } from "./pages/home-page/home-page.component";
 import { Navbar } from "./components/navbar/navbar.component";
 import { SignInSignUpPage } from "./pages/sign-in-sign-up-page/sign-in-and-sign-up.component";
 import { UserContext } from "./context/users/UserState.context";
+import { AboutPage } from "./pages/about/about.component";
 
 function App() {
   const { currentUser, setCurrentUser } = useContext(UserContext);
@@ -39,8 +40,19 @@ function App() {
       <Navbar currentUser={currentUser} />
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route exact path="/todo" component={TodoPage} />
-        <Route exact path="/signin" component={SignInSignUpPage} />
+        <Route
+          exact
+          path="/todo"
+          render={() => (currentUser ? <TodoPage /> : <Redirect to="/" />)}
+        />
+        <Route exact path="/about" component={AboutPage} />
+        <Route
+          exact
+          path="/signin"
+          render={() =>
+            currentUser ? <Redirect to="/todo" /> : <SignInSignUpPage />
+          }
+        />
       </Switch>
     </>
   );

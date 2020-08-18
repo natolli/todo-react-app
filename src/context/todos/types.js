@@ -3,4 +3,5 @@ export const todoTypes = {
   OPEN_MODAL: "OPEN_MODAL",
   DELETE_TASK: "DELETE_TASK",
   ADD_TODO: "ADD_TODO",
+  GET_TODOS: "GET_TODOS",
 };

@@ -18,7 +18,7 @@ export const Navbar = ({ currentUser }) => {
           <LinkStyled to="/">Home</LinkStyled>
         </ListStyled>
         <ListStyled>
-          <LinkStyled to="/todo">About</LinkStyled>
+          <LinkStyled to="/about">About</LinkStyled>
         </ListStyled>
         <ListStyled>
           {currentUser ? (

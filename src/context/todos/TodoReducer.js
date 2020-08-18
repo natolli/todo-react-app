@@ -12,20 +12,15 @@ const TodoReducer = (state, action) => {
           return todo;
         }),
       };
+    case todoTypes.GET_TODOS:
+      return {
+        ...state,
+        todos: action.payload,
+      };
     case todoTypes.OPEN_MODAL:
       return {
         ...state,
         addModal: !state.addModal,
-      };
-    case todoTypes.DELETE_TASK:
-      return {
-        ...state,
-        todos: state.todos.filter((todo) => todo.id !== action.payload),
-      };
-    case todoTypes.ADD_TODO:
-      return {
-        ...state,
-        todos: [action.payload, ...state.todos],
       };
     default:
       return state;

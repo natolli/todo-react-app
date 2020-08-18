@@ -2,7 +2,7 @@ import React from "react";
 import { HomePageContainer, MainText, SideText } from "./home-page.styles";
 import { CustomButton } from "../../components/custom-button/custom-button.component";
 
-export const HomePage = () => {
+export const HomePage = ({ history }) => {
   return (
     <HomePageContainer>
       <MainText>Manage Your Tasks.</MainText>
@@ -11,7 +11,9 @@ export const HomePage = () => {
         and onto your to-do list (no matter where you are or what device you
         use).
       </SideText>
-      <CustomButton>Get Started</CustomButton>
+      <CustomButton onClick={() => history.push("/signin")}>
+        Get Started
+      </CustomButton>
     </HomePageContainer>
   );
 };

@@ -4,7 +4,9 @@ import { TodoItem } from "../todo-item/todo-item.component";
 import { TodoContext } from "../../context/todos/TodoState.context";
 
 export const Todos = () => {
-  const { todos } = useContext(TodoContext);
+  const { todos, getTodos } = useContext(TodoContext);
+
+  getTodos();
 
   return (
     <TodosStyled>
